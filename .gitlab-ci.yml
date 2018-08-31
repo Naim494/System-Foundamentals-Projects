@@ -16,7 +16,7 @@ build:
 run:
     stage: run
     script:
-        - ${HW_DIR}/bin/${EXEC}
+        - ${HW_DIR}/bin/${EXEC} -h
 test:
     stage: test
     script:
