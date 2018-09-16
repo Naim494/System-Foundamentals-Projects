@@ -1,0 +1,64 @@
+ SECTION	2
+   STUDENT      118-70-2001 Einhorn, Marquis
+    SCORE		HW1+Essay	21
+    SCORE		HW2		16
+    SCORE		HW3+Essay	26
+    SCORE		HW4+Essay	39
+    SCORE		HW5		39
+    SCORE		Exam1		29
+    SCORE		Exam2		17
+    SCORE		Final		43
+   STUDENT      082-64-2002 Harms, Michel
+    SCORE		HW1+Essay	29
+    SCORE		HW2		25
+    SCORE		HW3+Essay	30
+    SCORE		HW4+Essay	42
+    SCORE		HW5		27
+    SCORE		Exam1		31
+    SCORE		Exam2		20
+    SCORE		Final		60
+   STUDENT      082-64-2003 Hoffmeister, Alec
+    SCORE		HW1+Essay	22
+    SCORE		HW2		10
+    SCORE		HW3+Essay	USERAW 0.0 (not submitted)
+    SCORE		HW4+Essay	USERAW 0.0 (not submitted)
+    SCORE		HW5		USERAW 0.0 (not submitted)
+    SCORE		Exam1		17
+    SCORE		Exam2		USERAW 0.0 (not submitted)
+    SCORE		Final		USERAW 0.0 (not submitted)
+   STUDENT      522-35-2004 Shomo, Tanja
+    SCORE		HW1+Essay	29
+    SCORE		HW2		19
+    SCORE		HW3+Essay	34
+    SCORE		HW4+Essay	29
+    SCORE		HW5		39
+    SCORE		Exam1		26
+    SCORE		Exam2		24
+    SCORE		Final		63
+   STUDENT      125-54-2005 Babbitt, Cristin
+    SCORE		HW1+Essay	39
+    SCORE		HW2		29
+    SCORE		HW3+Essay	38
+    SCORE		HW4+Essay	30
+    SCORE		HW5		40
+    SCORE		Exam1		26
+    SCORE		Exam2		12
+    SCORE		Final		46
+   STUDENT      064-68-2006 Panella, Marinda
+    SCORE		HW1+Essay	29
+    SCORE		HW2		20
+    SCORE		HW3+Essay	USELIKEAVG (submitted late, excused)
+    SCORE		HW4+Essay	36
+    SCORE		HW5		20
+    SCORE		Exam1		29
+    SCORE		Exam2		25
+    SCORE		Final		32
+   STUDENT      079-64-2007 Repass, Carlos
+    SCORE		HW1+Essay	9
+    SCORE		HW2		12
+    SCORE		HW3+Essay	USERAW 0.0 (not submitted)
+    SCORE		HW4+Essay	USERAW 0.0 (not submitted)
+    SCORE		HW5		USERAW 0.0 (not submitted)
+    SCORE		Exam1		USERAW 0.0 (not submitted)
+    SCORE		Exam2		USERAW 0.0 (not submitted)
+    SCORE		Final		USERAW 0.0 (not submitted)
