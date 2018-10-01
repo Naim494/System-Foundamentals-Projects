@@ -1,9 +1,3 @@
-GRADES FOR: Principles of Programming Languages (Spring 1991)
-PROFESSOR : Eugene W. Stark
-DATA FILE : cse307.dat
-RUN DATE  : Sun Sep 16 11:58:37 2018
-
-
 STUDENT INDIVIDUAL SCORES
 
 STUDENT	HW1+Essay	HW2	HW3+Essay	HW4+Essay	HW5	Exam1	Exam2	Final	COMPOSITE
@@ -30,4 +24,3 @@ FOR-88-1009	 29.00	 12.00	 22.00	 26.00	 18.00	 24.00	 23.00	 53.00	 36.25
 522-35-2004	 29.00	 19.00	 34.00	 29.00	 39.00	 26.00	 24.00	 63.00	 50.82
 139-76-3003	 25.00	  0.00	  0.00	  0.00	  0.00	 24.00	 18.00	  0.00	  9.68
 
-0 warnings were issued.
