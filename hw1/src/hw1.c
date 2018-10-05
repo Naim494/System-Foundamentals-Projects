@@ -441,86 +441,86 @@ int read_header(AUDIO_HEADER *hp) {
 
 }
 
-int write_header(AUDIO_HEADER *hp) {
+// int write_header(AUDIO_HEADER *hp) {
 
-    // unsigned int magic_number = hp -> magic_number;
-    // unsigned int data_offset = hp -> data_offset;
-    // unsigned int data_size = hp -> data_size;
-    // unsigned int encoding = hp -> encoding;
-    // unsigned int sample_rate = hp -> sample_rate;
-    // unsigned int channels = hp -> channels;
+//     unsigned int magic_number = hp -> magic_number;
+//     unsigned int data_offset = hp -> data_offset;
+//     unsigned int data_size = hp -> data_size;
+//     unsigned int encoding = hp -> encoding;
+//     unsigned int sample_rate = hp -> sample_rate;
+//     unsigned int channels = hp -> channels;
 
-    // char *p;
+//     char *p;
 
-    // int bit = 3;
-    // int out;
-    // int c = 0;
+//     int bit = 3;
+//     int out;
+//     int c = 0;
 
-    // do{
-    //     if((bit = -1))
-    //         bit = 3;
+//     do{
+//         if((bit = -1))
+//             bit = 3;
 
-    //     if(c <= 3) {
-    //         p = &magic_number;
-    //         out = putchar(*(p + bit));
-    //         if( out==EOF || ferror(stdout) )
-    //             return 0;
+//         if(c <= 3) {
+//             p = (char)(&magic_number);
+//             out = putchar(*(p + bit));
+//             if( out==EOF || ferror(stdout) )
+//                 return 0;
 
-    //         bit--;
-    //     }
-    //     else if( ((c > 3) && (c <= 7)) ) {
-    //         p = &data_offset;
-    //         out = putchar(*(p + bit));
-    //         if( out==EOF || ferror(stdout) )
-    //             return 0;
+//             bit--;
+//         }
+//         else if( ((c > 3) && (c <= 7)) ) {
+//             p = (char)&data_offset;
+//             out = putchar(*(p + bit));
+//             if( out==EOF || ferror(stdout) )
+//                 return 0;
 
-    //         bit--;
-    //     }
-    //     else if( ((c > 7) && (c <= 11)) ) {
-    //         p = &data_size;
-    //         out = putchar(*(p + bit));
-    //         if( out==EOF || ferror(stdout) )
-    //             return 0;
+//             bit--;
+//         }
+//         else if( ((c > 7) && (c <= 11)) ) {
+//             p = (char)&data_size;
+//             out = putchar(*(p + bit));
+//             if( out==EOF || ferror(stdout) )
+//                 return 0;
 
-    //         bit--;
+//             bit--;
 
-    //     }
-    //     else if( ((c > 11) && (c <= 15)) ) {
-    //         p = &encoding;
-    //         out = putchar(*(p + bit));
-    //         if( out==EOF || ferror(stdout) )
-    //             return 0;
+//         }
+//         else if( ((c > 11) && (c <= 15)) ) {
+//             p = (char)&encoding;
+//             out = putchar(*(p + bit));
+//             if( out==EOF || ferror(stdout) )
+//                 return 0;
 
-    //         bit--;
+//             bit--;
 
-    //     }
-    //     else if( ((c > 15) && (c <= 19)) ) {
-    //         p = &sample_rate;
-    //         out = putchar(*(p + bit));
-    //         if( out==EOF || ferror(stdout) )
-    //             return 0;
+//         }
+//         else if( ((c > 15) && (c <= 19)) ) {
+//             p = (char)&sample_rate;
+//             out = putchar(*(p + bit));
+//             if( out==EOF || ferror(stdout) )
+//                 return 0;
 
-    //         bit--;
+//             bit--;
 
-    //     }
-    //     else {
-    //         p = &channels;
-    //         out = putchar(*(p + bit));
-    //         if( out==EOF || ferror(stdout) )
-    //             return 0;
+//         }
+//         else {
+//             p = (char)&channels;
+//             out = putchar(*(p + bit));
+//             if( out==EOF || ferror(stdout) )
+//                 return 0;
 
-    //         bit--;
+//             bit--;
 
-    //     }
+//         }
 
-    //     c++;
+//         c++;
 
-    // }while(c < 24);
+//     }while(c < 24);
 
-    // return 1;
+//     return 1;
 
-return 0;
-}
+// return 0;
+// }
 
 int read_annotation(char *ap, unsigned int size) {
 
@@ -555,28 +555,32 @@ int write_annotation(char *ap, unsigned int size) {
 
 int read_frame(int *fp, int channels, int bytes_per_sample) {
 
-    // int totalBytes = channels * bytes_per_sample;
-    // int c = bytes_per_sample;
+    int totalBytes = channels * bytes_per_sample;
+    int c = bytes_per_sample;
 
-    // int *bf = fp;
-    // int val = *fp;
-    // char *p = &val;
+    // int x = 779316836;
 
-    // for(int i = 0; i < totalBytes; i++) {
-    //     *p = getchar();
-    //     p++;
-    //     if (feof(stdin) || ferror(stdin))
-    //         return 0;
-    //     if((*p) != 0x00)
-    //         c--;
+    // int *num = &x;
 
-    //     if(c == 0){
-    //         bf++;
-    //         p = &bf;
-    //     }
-    // }
+    // char *p = (char*)num;
 
-    return 0;
+    int *buffer = fp;
+    char *p = (char*)buffer;
+
+    for(int i = 0; i < totalBytes; i++) {
+        p* = getchar();
+        if (feof(stdin) || ferror(stdin))
+            return 0;
+        if((*p) != 0x00)
+            c--;
+
+        if(c == 0){
+            buffer++;
+            p = (char*)buffer;
+        }
+    }
+
+    return 1;
 }
 
 int write_frame(int *fp, int channels, int bytes_per_sample) {
