@@ -174,7 +174,6 @@ void free_stats(Stats *stats) {
 
 }
 
-
 void free_course(Course *course, Stats *stats) {
 
     free(course -> number);
