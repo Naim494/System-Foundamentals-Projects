@@ -121,6 +121,7 @@ char *argv[];
                 case TABSEP: tabsep++; break;
                 case NONAMES: nonames++; break;
                 case SORTBY:
+                case 'k':
                     if(!strcmp(optarg, "name"))
                         compare = comparename;
                     else if(!strcmp(optarg, "id"))
