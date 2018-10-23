@@ -291,7 +291,7 @@ sf_free_list_node *sf_add_free_list(size_t size, sf_free_list_node *next);
  */
 void sf_show_block_info(sf_block_info *ip);
 void sf_show_blocks();
-void sf_show_free_list();
+void sf_show_free_lists();
 void sf_show_heap();
 
 #endif
