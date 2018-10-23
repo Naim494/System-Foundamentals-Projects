@@ -4,13 +4,21 @@
 int main(int argc, char const *argv[]) {
     sf_mem_init();
 
-    double* ptr = sf_malloc(sizeof(double));
+    double* ptr = ptr = sf_malloc(sizeof(double));
 
-    *ptr = 320320320e-320;
+    if((ptr != NULL))
+        *ptr = 8;
 
-    printf("%f\n", *ptr);
 
-    sf_free(ptr);
+    // double* ptr = sf_malloc(sizeof(double));
+
+    // *ptr = 8;
+
+    //*ptr = 320320320e-320;
+
+    // printf("%f\n", *ptr);
+
+    // sf_free(ptr);
 
     sf_mem_fini();
 
