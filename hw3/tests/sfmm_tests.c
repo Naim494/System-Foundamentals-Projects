@@ -200,3 +200,64 @@ Test(sf_memsuite_student, realloc_smaller_block_free_block, .init = sf_mem_init,
 //DO NOT DELETE THESE COMMENTS
 //############################################
 
+Test(sf_memsuite_student, coalesce_up_down, .init = sf_mem_init, .fini = sf_mem_fini) {
+
+	void *x = sf_malloc(48);
+	int *z = sf_malloc(sizeof(int));
+	void *y = sf_malloc(48);
+
+	*z = 4;
+
+	sf_free(x);
+	sf_free(y);
+
+	sf_free(z);
+
+	//After after freeing z, there should be only 1 free block as a result of up-down coalescing
+	assert_free_block_count(1);
+}
+
+Test(sf_memsuite_student, realloc_larger_copy_correct_data, .init = sf_mem_init, .fini = sf_mem_fini) {
+
+	int *x = sf_malloc(sizeof(int));
+
+	*x = 100;
+
+	x = sf_realloc(x, sizeof(double));
+
+	cr_assert(*x == 100, "Data was not copied correctly");
+}
+
+Test(sf_memsuite_student, realloc_reject_invalid_pointer, .init = sf_mem_init, .fini = sf_mem_fini) {
+
+	int *x = NULL;
+
+	int *y = sf_realloc(x, sizeof(double));
+
+	if(y != NULL)
+		*y = 9;
+
+	cr_assert(sf_errno == EINVAL, "sf_errno should be set to EINVAL");
+}
+
+Test(sf_memsuite_student, free_reject_invalid_pointer, .init = sf_mem_init, .fini = sf_mem_fini, .signal = SIGABRT) {
+
+	int *x = NULL;
+
+	sf_free(x);
+}
+
+Test(sf_memsuite_student, free_adjacent_to_prlg_eplg, .init = sf_mem_init, .fini = sf_mem_init) {
+
+	int *x = sf_malloc(sizeof(double));
+
+	sf_free(x);
+
+	sf_free_list_node *node = sf_free_list_head.next -> next;
+
+	assert_free_block_count(1);
+
+	cr_assert(node -> size = 4048, "Block size should be 4048");
+
+}
+
