@@ -25,7 +25,6 @@ typedef struct printer {
 } PRINTER;
 
 #define MAX_PRINTERS 32       /* Maximum number of printers. */
-extern int imp_num_printers;  /* Number of declared printers. */
 
 /*
  * Bitmap to represent a set of printers.
