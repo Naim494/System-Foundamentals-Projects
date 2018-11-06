@@ -6,6 +6,7 @@ BIND := bin
 INCD := include
 UTILD := util
 SPOOLD := spool
+LIBD := lib
 
 ALL_SRCF := $(shell find $(SRCD) -type f -name *.c)
 ALL_LIBF := $(shell find $(LIBD) -type f -name *.o)
