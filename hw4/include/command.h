@@ -11,6 +11,11 @@ int conversion_cmd(char *args);
 int printers_cmd(char *args);
 int jobs_cmd(char *args);
 int print_cmd(char *args);
+int cancel_cmd(char *args);
+int pause_cmd(char *args);
+int resume_cmd(char *args);
+int disable_cmd(char *args);
+int enable_cmd(char *args);
 
 
 typedef struct ARGUMENT{

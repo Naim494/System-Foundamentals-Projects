@@ -16,6 +16,14 @@ void initialize_printer(char *name, char *file_type);
 void initialize_conv_cells(char *file_type, int start_row, int start_col);
 void print_cmd_error_msg(char *msg);
 int isDeclaredType(char *file_type);
+int isDeclaredPrinter(char *printer_name);
+
+void print_all_types();
+
+JOB *find_job_with_pgid(int pgid);
+void sigchildHandler(int sig);
+void fork_pipe_processes(JOB *job, int conv_flag, char *envp[]);
+PRINTER *choosePrinterFromPS(JOB *job);
 
 
 
@@ -72,6 +80,7 @@ typedef struct VISITED_CELL {
 } VISITED_CELL;
 
 void initialize_parent_index();
+void initialize_visited();
 
 VISITED_CELL visited_matrix[MAX_FILE_TYPES][MAX_FILE_TYPES];
 VISITED_CELL *lastVisitedCell;
@@ -85,6 +94,9 @@ void getConversionSteps();
 VISITED_CELL *getParentCell(VISITED_CELL *cell);
 
 void recurssive_func(VISITED_CELL *vc, int pos, CONV_CELL *steps[MAX_FILE_TYPES]);
+
+int find_pipeline(char *start_row, char *end_col);
+
 
 
 
@@ -110,7 +122,7 @@ JOB_NODE *jq_dequeue();
 
 int jq_isEmpty();
 
-void initialize_job(JOB *jp, int id, JOB_STATUS, char *file_name, char *file_type, char **ps);
+void initialize_job(JOB *jp, int id, JOB_STATUS, char *file_name, char *file_type, char *ps[], int i);
 
 PRINTER *find_printer(char *name);
 
