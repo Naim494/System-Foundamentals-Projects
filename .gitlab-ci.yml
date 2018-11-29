@@ -1,18 +1,13 @@
 image: hwrunner:latest
 variables:
     GIT_SSL_NO_VERIFY: "true"
-    EXEC: imprimer
-    HW_DIR: hw4
+    EXEC: xacto
+    HW_DIR: hw5
 before_script:
     - make clean all -C ${HW_DIR}
 stages:
     - build
-    - run
 build:
     stage: build
     script:
         - echo "Build done"
-run:
-    stage: run
-    script:
-        - cd ${HW_DIR} && bin/${EXEC} -i rsrc/imprimer.cmd
