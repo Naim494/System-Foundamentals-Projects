@@ -28,8 +28,6 @@
  * The following are the packet types in the protocol:
  *
  * Client-to-server requests:
- *   BEGIN:   Begin a new transaction
- *            (reply returns transaction ID and status)
  *   PUT:     Put a key/value mapping in the store
  *            (sends key, value, and transaction ID)
  *	      (reply returns status)
