@@ -25,7 +25,7 @@ int main(int argc, char* argv[]){
     // shutdown of the server.
 
     fprintf(stderr, "You have to finish implementing main() "
-	    "before the Xacto server will function.\n");
+        "before the Xacto server will function.\n");
 
     terminate(EXIT_FAILURE);
 }
@@ -37,7 +37,7 @@ void terminate(int status) {
     // Shutdown all client connections.
     // This will trigger the eventual termination of service threads.
     creg_shutdown_all(client_registry);
-    
+
     debug("Waiting for service threads to terminate...");
     creg_wait_for_empty(client_registry);
     debug("All service threads terminated.");
