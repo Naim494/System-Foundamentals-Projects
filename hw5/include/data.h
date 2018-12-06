@@ -66,13 +66,13 @@ typedef struct version {
  */
 BLOB *blob_create(char *content, size_t size);
 
-/*
- * Increase the reference count on a blob.
- *
- * @param bp  The blob.
- * @param why  Short phrase explaining the purpose of the increase.
- * @return  The blob pointer passed as the argument.
- */
+
+ // * Increase the reference count on a blob.
+ // *
+ // * @param bp  The blob.
+ // * @param why  Short phrase explaining the purpose of the increase.
+ // * @return  The blob pointer passed as the argument.
+
 BLOB *blob_ref(BLOB *bp, char *why);
 
 /*
@@ -95,7 +95,7 @@ int blob_compare(BLOB *bp1, BLOB *bp2);
 
 /*
  * Hash function for hashing the content of a blob.
- * 
+ *
  * @param bp  The blob.
  * @return  Hash of the blob.
  */
