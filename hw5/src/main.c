@@ -16,10 +16,8 @@ CLIENT_REGISTRY *client_registry;
 
 
 //signal handler
-void sighup_handler(int sig){
-    if(sig == SIGHUP){
-        terminate(EXIT_SUCCESS);
-    }
+void sighupHandler(int sig){
+    terminate(EXIT_SUCCESS);
 }
 
 
@@ -27,8 +25,6 @@ void sighup_handler(int sig){
 
 int main(int argc, char* argv[]){
 
-
-    //Sem_init(&mutex,0,1);
     // Option processing should be performed here.
     // Option '-p <port>' is required in order to specify the port number
     // on which the server should listen.
@@ -36,21 +32,24 @@ int main(int argc, char* argv[]){
     // Perform required initializations of the client_registry,
     // transaction manager, and object store.
     int listenfd = 0;
-    //finding and storing the port number.
-    for( int i = 1; i < argc; i++ )
+
+    if (argc == 3)
+    {
+        if(!strcmp(argv[1], "-p"))
         {
-            if( strcmp( argv[i], "-p" ) == 0 )
-            {
-                //portnumber = atoi(argv[i+1]);
-                listenfd = Open_listenfd(argv[i+1]);
-                break;
-            }
-            else
-            {
-                printf("error, argument : %s is not understood.\n" , argv[i]);
-                exit(1);
-            }
+            listenfd = Open_listenfd(argv[2]);
         }
+        else
+        {
+            fprintf(stderr, "usage: %s <port>\n", argv[0]);
+            exit(EXIT_FAILURE);
+        }
+    }
+    else
+    {
+        fprintf(stderr, "usage: %s <port>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
 
 
     client_registry = creg_init();
@@ -63,7 +62,7 @@ int main(int argc, char* argv[]){
     // a SIGHUP handler, so that receipt of SIGHUP will perform a clean
     // shutdown of the server.
 
-    Signal(SIGHUP, sighup_handler);
+    Signal(SIGHUP, sighupHandler);
 
     int *connfdp;
     socklen_t clientlen;
@@ -78,13 +77,10 @@ int main(int argc, char* argv[]){
         Pthread_create(&tid, NULL, xacto_client_service, connfdp);
     }
 
+    // fprintf(stderr, "You have to finish implementing main() "
+    //     "before the Xacto server will function.\n");
 
-
-
-    fprintf(stderr, "You have to finish implementing main() "
-        "before the Xacto server will function.\n");
-
-    terminate(EXIT_FAILURE);
+    // terminate(EXIT_FAILURE);
 }
 
 
