@@ -14,14 +14,9 @@ static void terminate(int status);
 
 CLIENT_REGISTRY *client_registry;
 
-
-//signal handler
 void sighupHandler(int sig){
     terminate(EXIT_SUCCESS);
 }
-
-
-
 
 int main(int argc, char* argv[]){
 
